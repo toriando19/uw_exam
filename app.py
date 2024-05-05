@@ -13,7 +13,7 @@ def git_update():
 ##############################
 @get("/")
 def _():
-  return "Two "
+  return "Your connection is successful! :)"
  
 ##############################
 try:
