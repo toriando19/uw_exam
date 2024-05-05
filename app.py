@@ -1,5 +1,10 @@
-from bottle import default_app, get, post, run
-import git
+# from bottle import default_app, get, post, run
+# import git
+
+from bottle import default_app, get, post, run, response, Bottle
+import git, json
+ 
+app = Bottle()
  
 @post('/secret_url_for_git_hook')
 def git_update():
@@ -15,6 +20,22 @@ def git_update():
 def _():
   return "Your connection is successful! :)"
  
+##############################
+
+@get("/crimes")
+def _():
+    try:
+        # Assuming your JSON file is named data.json
+        with open("/home/mari78f9/ultimate-web/crime.json", "r") as f:
+            data = json.load(f)
+        response.content_type = 'application/json'
+        return json.dumps(data)
+    except Exception as e:
+        return f"Error: {e}"
+ 
+if __name__ == "__main__":
+    run(app, host='0.0.0.0', port=8080, debug=True)
+
 ##############################
 try:
   import production
