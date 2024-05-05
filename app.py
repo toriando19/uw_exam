@@ -26,7 +26,7 @@ def _():
 def _():
     try:
         # Assuming your JSON file is named data.json
-        with open("/home/mari78f9/ultimate-web/crime.json", "r") as f:
+        with open("/home/viktoriaando/uw_exam/crime.json", "r") as f:
             data = json.load(f)
         response.content_type = 'application/json'
         return json.dumps(data)
